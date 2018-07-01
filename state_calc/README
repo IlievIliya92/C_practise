@@ -1,0 +1,15 @@
+nasko@gorgoroth:~/mnk/2/state_calc$ cd queue_object/
+nasko@gorgoroth:~/mnk/2/state_calc/queue_object$ cc -st -c -I. -Iinternal src/queue.c 
+nasko@gorgoroth:~/mnk/2/state_calc/queue_object$ cd ..
+nasko@gorgoroth:~/mnk/2/state_calc$ cd state_machine/
+nasko@gorgoroth:~/mnk/2/state_calc/state_machine$ cc -c -I. state_machine.c 
+nasko@gorgoroth:~/mnk/2/state_calc/state_machine$ cd ..
+nasko@gorgoroth:~/mnk/2/state_calc$ cc -st -Iqueue_object -Istate_machine -I. -DDEC_CALC calc.c calc_dec.c calc_hex.c queue_object/queue.o state_machine/state_machine.o -o calc
+nasko@gorgoroth:~/mnk/2/state_calc$ echo "1 2 3 4 + + + ." | ./calc 
+10
+nasko@gorgoroth:~/mnk/2/state_calc$ echo "1 2 3 4 + + + 5 * ." | ./calc 
+50
+nasko@gorgoroth:~/mnk/2/state_calc$  
+
+za linux:
+maha se opcijata -st i se slaga -lpthread sled -o calc opcijata na poslednata kompilacija

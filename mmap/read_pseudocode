@@ -1,0 +1,6 @@
+fd = open(...);
+lseek(fd, off, SEEK_SET);
+read(fd, buf, len);
+
+fd = open(...);
+buf = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, offset);
